@@ -1,65 +1,101 @@
+"use client";
 import Image from "next/image";
+import LightPillar from "@/components/LightPillar";
+import CardNav from "@/components/CardNav";
+import ShinyText from "@/components/ShinyText";
 
 export default function Home() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+	const items = [
+		{
+			label: "About",
+			bgColor: "#0D0716",
+			textColor: "#fff",
+			links: [
+				{ label: "Company", ariaLabel: "About Company" },
+				{ label: "Careers", ariaLabel: "About Careers" },
+			],
+		},
+		{
+			label: "Projects",
+			bgColor: "#170D27",
+			textColor: "#fff",
+			links: [
+				{ label: "Featured", ariaLabel: "Featured Projects" },
+				{ label: "Case Studies", ariaLabel: "Project Case Studies" },
+			],
+		},
+		{
+			label: "Contact",
+			bgColor: "#271E37",
+			textColor: "#fff",
+			links: [
+				{ label: "Email", ariaLabel: "Email us" },
+				{ label: "Twitter", ariaLabel: "Twitter" },
+				{ label: "LinkedIn", ariaLabel: "LinkedIn" },
+			],
+		},
+	];
+
+	return (
+		<div
+			id="body-content"
+			className="flex flex-col w-full min-h-screen  items-center bg-black text-white"
+		>
+			<LightPillar
+				topColor="#8ff382"
+				bottomColor="#00eb2f"
+				intensity={0.8}
+				rotationSpeed={0.3}
+				interactive={false}
+				glowAmount={0.002}
+				pillarWidth={3}
+				pillarHeight={0.4}
+				noiseIntensity={0.5}
+				pillarRotation={25}
+			/>
+			<div
+				id="content-container"
+				className="w-5xl flex flex-col items-center justify-center"
+			>
+				<header
+					className="w-full h-11/12 flex justify-center mt-10"
+					id="header"
+				>
+					<CardNav
+						logo="/logo.svg"
+						logoAlt="Logo"
+						items={items}
+						baseColor=""
+						menuColor="#fff"
+						ease="circ.out"
+						theme="dark"
+						className=" "
+					/>
+				</header>
+				{/* Content Start */}
+				<main id="main" className="w-full mt-28">
+					{/* Hero */}
+					<section className="w-full min-h-96 p-5 flex justify-center items-center">
+						<ShinyText
+							text="Programar é dar forma ao invisível, criando sistemas que conectam, resolvem e inovam..."
+							speed={2}
+							delay={0}
+							color="#b5b5b5"
+							shineColor="#ffffff"
+							spread={120}
+							direction="left"
+							yoyo={false}
+							pauseOnHover={false}
+							disabled={false}
+							className="text-5xl text-center font-space font-bold"
+						/>
+					</section>
+					{/* Portfolio */}
+					<section></section>
+					{/* Contatct */}
+					<section></section>
+				</main>
+			</div>
+		</div>
+	);
 }
