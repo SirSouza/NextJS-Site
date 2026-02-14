@@ -4,6 +4,7 @@ import LightPillar from "@/components/LightPillar";
 import CardNav from "@/components/CardNav";
 import ShinyText from "@/components/ShinyText";
 
+
 export default function Home() {
 	const items = [
 		{
